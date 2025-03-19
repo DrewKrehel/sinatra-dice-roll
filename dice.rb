@@ -15,15 +15,15 @@ end
 
 get("/") do
   luck_num = rand(100)
-  return "Luck # = #{luck_num}"
-
   "
   <h1>Dice Roll</h1>
   <ul>
     <li><a href=\"/dice/2/6\">Roll two 6-sided dice</a></li>
-    <li><a herf=\"/dice/3/8\">Roll three 8-sided dice</a></li>
-    
+    <li><a href=\"/dice/3/8\">Roll three 8-sided dice</a></li>
+    <li><a href=\"/dice/5/4\">Roll five 4-sided dice</a><li>
+
   </ul>
+  <p>Luck # = #{luck_num}</p>
   "
 end
 
@@ -50,10 +50,20 @@ get("/dice/3/8") do
   first_die = rand(1..8)
   second_die = rand(1..8)
   third_die = rand(1..8)
-  sme = first_die + second_die + third_die
+  sum = first_die + second_die + third_die
 
   outcome = "You rolled a #{first_die}, a #{second_die}, and a #{third_die} for a total of #{sum}."
 
   "<h1>3d8</h1>
+  <p>#{outcome}</p>"
+end
+
+get("/dice/5/4") do
+  dice = Array.new(5) {rand(1.4)}
+  sum = dice.sum
+
+  outcome = "You rolled #{dice.join(',')}"
+
+  "<h1>5d4</h1>
   <p>#{outcome}</p>"
 end
