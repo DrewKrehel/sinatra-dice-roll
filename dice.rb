@@ -10,7 +10,8 @@ BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 
 get("/") do
-  luck_num = rand(100)
+  @luck_num = rand(100)
+  
   erb(:elephant)
 end
 
