@@ -1,5 +1,10 @@
   
-  <h1>2d6</h1>
+<h1>2d6</h1>
 
+<% if @first_die == 1 %>
+  <p style="color: red"><%= @outcome %></p>
+<% elsif @first_die == 6 %>
+  <p style="color: green"><%= @outcome %></p>
+<% else %>
   <p><%= @outcome %></p>
-
+<% end %>
