@@ -39,28 +39,25 @@ get("/dice/3/8") do
   third_die = rand(1..8)
   sum = first_die + second_die + third_die
 
-  outcome = "You rolled a #{first_die}, a #{second_die}, and a #{third_die} for a total of #{sum}."
+  @outcome = "You rolled a #{first_die}, a #{second_die}, and a #{third_die} for a total of #{sum}."
 
-  "<h1>3d8</h1>
-  <p>#{outcome}</p>"
+  erb(:three_eight)
 end
 
 get("/dice/5/4") do
   dice = Array.new(5) {rand(1..4)}
   sum = dice.sum
 
-  outcome = "You rolled #{dice.join(', ')} for a total of #{sum}."
+  @outcome = "You rolled #{dice.join(', ')} for a total of #{sum}."
 
-  "<h1>5d4</h1>
-  <p>#{outcome}</p>"
+  erb(:five_four)
 end
 
 get("/dice/8/20") do
   dice = Array.new(8) {rand(1..20)}
   sum = dice.sum
 
-  outcome = "You rolled #{dice.join(', ')} for a total of #{sum}."
+  @outcome = "You rolled #{dice.join(', ')} for a total of #{sum}."
 
-  "<h1>8d20</h1>
-  <p>#{outcome}</p>"
+  erb(:eight_twenty)
 end
