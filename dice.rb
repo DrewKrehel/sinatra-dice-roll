@@ -11,16 +11,7 @@ BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 get("/") do
   luck_num = rand(100)
-  "
-  <h1>Dice Roll</h1>
-  <ul>
-    <li><a href=\"/dice/2/6\">Roll two 6-sided dice</a></li>
-    <li><a href=\"/dice/3/8\">Roll three 8-sided dice</a></li>
-    <li><a href=\"/dice/5/4\">Roll five 4-sided dice</a></li>
-    <li><a href=\"/dice/8/20\">Roll eight 20-sided dice</a></li>
-  </ul>
-  <p>Luck # = #{luck_num}</p>
-  "
+  erb(:elephant)
 end
 
 get("/zebra") do
@@ -36,10 +27,9 @@ get("/dice/2/6") do
   second_die = rand(1..6)
   sum = first_die + second_die
 	
-  outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
 	
-  "<h1>2d6</h1>
-   <p>#{outcome}</p>"
+  erb(:two_six)
 end
 
 get("/dice/3/8") do
