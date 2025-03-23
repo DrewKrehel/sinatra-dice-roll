@@ -2,6 +2,7 @@ require "sinatra"
 require "sinatra/reloader"
 require "better_errors"
 require "binding_of_caller"
+require "htmlbeautifier"
 
 # Need this configuration for better_errors
 use(BetterErrors::Middleware)
