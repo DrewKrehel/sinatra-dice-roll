@@ -1,4 +1,12 @@
   
-  <h1>5d4</h1>
-  <p><%= @outcome %></p>
+<h1>5d4</h1>
 
+<ul>
+  <% @dice.each do |a_roll| %>
+    <li>
+      <%= a_roll %>
+    </li>
+  <% end %>
+</ul>
+  
+<p><%= @outcome %></p>

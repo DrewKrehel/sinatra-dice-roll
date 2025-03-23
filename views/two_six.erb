@@ -1,6 +1,11 @@
   
 <h1>2d6</h1>
 
+<ul>
+  <li><%= @first_die %></li>
+  <li><%= @second_die %></li>
+</ul>
+
 <% if @first_die == 1 %>
   <p style="color: red"><%= @outcome %></p>
 <% elsif @first_die == 6 %>

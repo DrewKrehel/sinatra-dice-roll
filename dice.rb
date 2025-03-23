@@ -28,27 +28,29 @@ get("/dice/2/6") do
   @second_die = rand(1..6)
   @sum = @first_die + @second_die
 	
-  @outcome = "You rolled a #{@first_die} and a #{@second_die} for a total of #{@sum}."
+  @outcome = "You rolled a total of #{@sum}."
 	
   erb(:two_six)
 end
 
 get("/dice/3/8") do
-  first_die = rand(1..8)
-  second_die = rand(1..8)
-  third_die = rand(1..8)
-  sum = first_die + second_die + third_die
+  @first_die = rand(1..8)
+  @second_die = rand(1..8)
+  @third_die = rand(1..8)
+  @sum = @first_die + @second_die + @third_die
 
-  @outcome = "You rolled a #{first_die}, a #{second_die}, and a #{third_die} for a total of #{sum}."
+  # @outcome = "You rolled a #{@first_die}, a #{@second_die}, and a #{@third_die} for a total of #{@sum}."
+  @outcome = "You rolled a total of #{@sum}."
 
   erb(:three_eight)
 end
 
 get("/dice/5/4") do
-  dice = Array.new(5) {rand(1..4)}
-  sum = dice.sum
+  @dice = Array.new(5) {rand(1..4)}
+  @sum = @dice.sum
 
-  @outcome = "You rolled #{dice.join(', ')} for a total of #{sum}."
+  # @outcome = "You rolled #{@dice.join(', ')} for a total of #{@sum}."
+  @outcome = "You rolled a total of #{@sum}."
 
   erb(:five_four)
 end
@@ -57,7 +59,7 @@ get("/dice/8/20") do
   @dice = Array.new(8) {rand(1..20)}
   @sum = @dice.sum
 
-  @outcome = "You rolled #{@dice.join(', ')} for a total of #{@sum}."
+  @outcome = "You rolled a total of #{@sum}."
 
   erb(:eight_twenty)
 end
@@ -71,5 +73,8 @@ get("/dice/100/6") do
     @rolls.push(die)    # Add the random number to the array 
   end
 
+  @sum = @rolls.sum
+  @outcome = "You rolled a total of #{@sum}."
+  
   erb(:one_hundred_six)
 end
