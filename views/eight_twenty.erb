@@ -9,4 +9,12 @@
 <!--  <p><%#= @outcome %></p>-->
 <%# end %>
 
+<ul>
+  <% @dice.each do |a_roll| %>
+    <li>
+      <%= a_roll %>
+    </li>
+  <% end %>
+</ul>
+
 <p> <%= @outcome %> </p>
